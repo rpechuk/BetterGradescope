@@ -13,7 +13,7 @@ const Popup = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p className="text-lime-400">
-          hi 
+          hi hi
         </p>
         <a
           className="App-link"
