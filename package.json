@@ -20,6 +20,7 @@
   },
   "type": "module",
   "dependencies": {
+    "antd": "^5.10.0",
     "construct-style-sheets-polyfill": "^3.1.0",
     "react": "18.2.0",
     "react-color": "^2.19.3",
