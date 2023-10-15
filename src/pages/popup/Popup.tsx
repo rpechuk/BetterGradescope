@@ -1,18 +1,13 @@
-import React from "react";
 import "@pages/popup/Popup.css";
-import useStorage from "@src/shared/hooks/useStorage";
-import exampleThemeStorage from "@src/shared/storages/exampleThemeStorage";
 import withSuspense from "@src/shared/hoc/withSuspense";
 import { SettingFilled, CheckCircleFilled } from '@ant-design/icons';
 import { ConfigProvider, Tabs } from 'antd';
-import { ColorPicker } from 'antd';
 import Settings from "./Tabs/Settings";
 import Todo from "./Tabs/Todo";
 
 const { TabPane } = Tabs;
 
 const Popup = () => {
-
   return (
       <ConfigProvider
       theme={{
@@ -26,7 +21,7 @@ const Popup = () => {
         },
       }}
     >
-      <div className="App py-3 justify-center">
+      <div className="App py-3 self-start">
         <Tabs 
           size="large"
           defaultActiveKey="1"
@@ -36,13 +31,21 @@ const Popup = () => {
           style={{ color: 'white'}}
         >
           <TabPane
-            tab="Todo"
+            tab={
+              <span>
+                <CheckCircleFilled rev={undefined} />Todo
+              </span>
+            }
             key="1"
           >
             <Todo />
           </TabPane>
           <TabPane
-            tab="Settings"
+            tab={
+              <span>
+                <SettingFilled rev={undefined} />Settings
+              </span>
+            }
             key="2"
           >
             <Settings />
