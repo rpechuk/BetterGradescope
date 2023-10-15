@@ -1,4 +1,7 @@
 import dataStorage from "@root/src/shared/storages/dataStorage";
+
+console.log(document)
+
 dataStorage.set({
     quarter: [
         {
@@ -20,4 +23,8 @@ dataStorage.set({
             ],
         },
     ],
+});
+
+chrome.storage.local.get('gradescope-user-info', (data) => {
+    console.log(data);
 });
