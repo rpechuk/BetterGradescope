@@ -6,6 +6,8 @@ import withSuspense from "@src/shared/hoc/withSuspense";
 import { SettingFilled, CheckCircleFilled } from '@ant-design/icons';
 import { ConfigProvider, Tabs } from 'antd';
 import { ColorPicker } from 'antd';
+import Settings from "./Tabs/Settings";
+import Todo from "./Tabs/Todo";
 
 const { TabPane } = Tabs;
 
@@ -37,13 +39,13 @@ const Popup = () => {
             tab="Todo"
             key="1"
           >
-            Content of Tab 1
+            <Todo />
           </TabPane>
           <TabPane
             tab="Settings"
             key="2"
           >
-            Content of Tab 2
+            <Settings />
           </TabPane>
         </Tabs>
       </div>
