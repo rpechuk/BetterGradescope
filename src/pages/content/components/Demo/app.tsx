@@ -1,10 +1,39 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import { SketchPicker } from 'react-color';
+
 
 export default function App() {
-  useEffect(() => {
-    var r = document.querySelector(':root') as HTMLElement;
-    r.style.setProperty('--tdl-color-primary', '#00FF00');
-  }, []);
+  const [showColorPicker, setShowColorPicker] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('#00FF00');
 
-  return <div className="text-lime-400">content view 1</div>;
+  const handleColorChange = (color) => {
+    setSelectedColor(color.hex);
+  };
+
+  const toggleColorPicker = () => {
+    setShowColorPicker(!showColorPicker);
+  };
+
+  const closeColorPicker = () => {
+    setShowColorPicker(false);
+  };
+
+  return (
+    <div className="text-lime-400">
+      <button onClick={toggleColorPicker}>
+        Color
+      </button>
+
+      {showColorPicker && (
+        <div
+          onBlur={closeColorPicker}
+          tabIndex="0"
+          onMouseEnter={() => {}}
+          onMouseLeave={closeColorPicker}
+        >
+          <SketchPicker color={selectedColor} onChange={handleColorChange} />
+        </div>
+      )}
+    </div>
+  );
 }
