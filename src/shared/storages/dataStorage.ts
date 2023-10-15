@@ -22,7 +22,7 @@ export type User = {
 };
 
 type DataStorage = BaseStorage<User> & {
-  setUserInfo: (user: User) => void;
+  //add methods here
 };
 
 const storage = createStorage<User>("gradescope-user-info", {}, {
@@ -30,9 +30,6 @@ const storage = createStorage<User>("gradescope-user-info", {}, {
 });
 
 const dataStorage: DataStorage = {
-  setUserInfo: (user) => {
-    dataStorage.set(user);
-  },
   ...storage,
 };
 
