@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { SketchPicker } from 'react-color';
-
+import { GithubPicker } from 'react-color';
 
 export default function App() {
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -8,6 +7,7 @@ export default function App() {
 
   const handleColorChange = (color) => {
     setSelectedColor(color.hex);
+    document.documentElement.style.setProperty('--tdl-color-primary', color.hex);
   };
 
   const toggleColorPicker = () => {
@@ -20,18 +20,15 @@ export default function App() {
 
   return (
     <div className="text-lime-400">
-      <button onClick={toggleColorPicker}>
-        Color
-      </button>
-
+      <button onClick={toggleColorPicker}>Color</button>
       {showColorPicker && (
         <div
           onBlur={closeColorPicker}
           tabIndex="0"
-          onMouseEnter={() => {}}
-          onMouseLeave={closeColorPicker}
+          onMouseEnter={() => {}} 
+          onMouseLeave={closeColorPicker} 
         >
-          <SketchPicker color={selectedColor} onChange={handleColorChange} />
+          <GithubPicker color={selectedColor} onChange={handleColorChange} />
         </div>
       )}
     </div>
